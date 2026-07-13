@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>VerboPuzzle Italiano</title>
+    <!-- Vinculación con el archivo CSS externo -->
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+    <header>
+        <h1>🇮🇹 VerboPuzzle</h1>
+    </header>
+
+    <div class="card-verbo">
+        <p>¿A qué tiempo corresponde el verbo?</p>
+        <h2 id="verbo-activo">---</h2>
+        <div class="contador" id="contador">Progreso: 0 / 0</div>
+    </div>
+
+    <div class="tablero">
+        <!-- MODO INDICATIVO -->
+        <div class="modo-seccion">
+            <div class="modo-titulo indicativo-t">Modo Indicativo</div>
+            <div class="matriz">
+                <div class="casilla" onclick="comprobar('indicativo', 'presente', this)"><span class="casilla-nombre">Presente</span><div class="casilla-check" id="indicativo-presente"></div></div>
+                <div class="casilla" onclick="comprobar('indicativo', 'passato-prossimo', this)"><span class="casilla-nombre">Passato Pross.</span><div class="casilla-check" id="indicativo-passato-prossimo"></div></div>
+                <div class="casilla" onclick="comprobar('indicativo', 'imperfetto', this)"><span class="casilla-nombre">Imperfetto</span><div class="casilla-check" id="indicativo-imperfetto"></div><div class="pista-circulo pista-v">v</div></div>
+                <div class="casilla" onclick="comprobar('indicativo', 'trapassato-prossimo', this)"><span class="casilla-nombre">Trapassato Pr.</span><div class="casilla-check" id="indicativo-trapassato-prossimo"></div><div class="pista-circulo pista-v">v</div></div>
+                <div class="casilla" onclick="comprobar('indicativo', 'passato-remoto', this)"><span class="casilla-nombre">Passato Rem.</span><div class="casilla-check" id="indicativo-passato-remoto"></div></div>
+                <div class="casilla" onclick="comprobar('indicativo', 'trapassato-remoto', this)"><span class="casilla-nombre">Trapassato Rem.</span><div class="casilla-check" id="indicativo-trapassato-remoto"></div></div>
+                <div class="casilla" onclick="comprobar('indicativo', 'futuro-semplice', this)"><span class="casilla-nombre">Futuro Semp.</span><div class="casilla-check" id="indicativo-futuro-semplice"></div></div>
+                <div class="casilla" onclick="comprobar('indicativo', 'futuro-anteriore', this)"><span class="casilla-nombre">Futuro Ant.</span><div class="casilla-check" id="indicativo-futuro-anteriore"></div></div>
+            </div>
+        </div>
+
+        <!-- MODO CONGIUNTIVO -->
+        <div class="modo-seccion">
+            <div class="modo-titulo congiuntivo-t">Modo Congiuntivo</div>
+            <div class="matriz">
+                <div class="casilla" onclick="comprobar('congiuntivo', 'presente', this)"><span class="casilla-nombre">Presente</span><div class="casilla-check" id="congiuntivo-presente"></div></div>
+                <div class="casilla" onclick="comprobar('congiuntivo', 'passato', this)"><span class="casilla-nombre">Passato</span><div class="casilla-check" id="congiuntivo-passato"></div></div>
+                <div class="casilla" onclick="comprobar('congiuntivo', 'imperfetto', this)"><span class="casilla-nombre">Imperfetto</span><div class="casilla-check" id="congiuntivo-imperfetto"></div><div class="pista-circulo pista-ss">ss</div></div>
+                <div class="casilla" onclick="comprobar('congiuntivo', 'trapassato', this)"><span class="casilla-nombre">Trapassato</span><div class="casilla-check" id="congiuntivo-trapassato"></div><div class="pista-circulo pista-ss">ss</div></div>
+            </div>
+        </div>
+
+        <!-- MODO CONDIZIONALE -->
+        <div class="modo-seccion">
+            <div class="modo-titulo condizionale-t">Modo Condizionale</div>
+            <div class="matriz">
+                <div class="casilla" onclick="comprobar('condizionale', 'presente', this)"><span class="casilla-nombre">Presente</span><div class="casilla-check" id="condizionale-presente"></div></div>
+                <div class="casilla" onclick="comprobar('condizionale', 'passato', this)"><span class="casilla-nombre">Passato</span><div class="casilla-check" id="condizionale-passato"></div></div>
+            </div>
+        </div>
+
+        <!-- MODO IMPERATIVO -->
+        <div class="modo-seccion">
+            <div class="modo-titulo imperativo-t">Modo Imperativo</div>
+            <div class="matriz matriz-1col">
+                <div class="casilla" onclick="comprobar('imperativo', 'presente', this)"><span class="casilla-nombre">Presente</span><div class="casilla-check" id="imperativo-presente"></div></div>
+            </div>
+        </div>
+    </div>
+
+    <div class="feedback-bar" id="feedback-bar"></div>
+
+    <!-- Vinculación con el archivo JavaScript externo -->
+    <script src="script.js"></script>
+</body>
+</html>
