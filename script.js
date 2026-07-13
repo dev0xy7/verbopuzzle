@@ -157,4 +157,4 @@ function comprobar(modoSeleccionado, tiempoSeleccionado, elementoCasilla) {
     
     if (modoSeleccionado === verboCorrecto.modo && tiempoSeleccionado === verboCorrecto.tiempo) {
         bloqueado = true;
-        elementoCasilla.classList.add("correcto");
+        elementoCasilla.classList.add("correcto"); 
