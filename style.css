@@ -231,6 +231,7 @@ h1 {
     border: 2px solid var(--congiuntivo);
     background: rgba(230, 126, 34, 0.15); 
 }
+/* Para los modos con 1 y 2 (Separa las dos columnas) */
 .columnas-num {
     display: grid;
     grid-template-columns: 1fr 1fr;
@@ -242,7 +243,11 @@ h1 {
     padding: 0 4px;
 }
 
-/* Si es la sección de una sola columna (Imperativo), adapta el espacio */
-.modo-seccion:has(.matriz-1col) .columnas-num {
-    grid-template-columns: 1fr;
+/* Para el Modo Imperativo (Centra el número 1 solito) */
+.columna-unica {
+    text-align: center;
+    font-size: 15px;
+    font-weight: bold;
+    color: #7f8c8d;
+    margin-bottom: 6px;
 }
