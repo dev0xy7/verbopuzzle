@@ -1,4 +1,3 @@
-// Banco de verbos masivo con modales (dovere, potere, volere, sapere)
 const bancoVerbos = [
     // --- MODO INDICATIVO ---
     { texto: "io parlo", modo: "indicativo", tiempo: "presente" },
@@ -35,12 +34,12 @@ const bancoVerbos = [
     
     { texto: "io avevo cantato", modo: "indicativo", tiempo: "trapassato-prossimo" },
     { texto: "tu avevi creduto", modo: "indicativo", tiempo: "trapassato-prossimo" },
-    { texto: "lui era partito", modo: "indicativo", tiempo: "trapassato-prossimo" },
+    { texto: "lui era partido", modo: "indicativo", tiempo: "trapassato-prossimo" },
     { texto: "noi eravamo andati", modo: "indicativo", tiempo: "trapassato-prossimo" },
     { texto: "voi avevate bevuto", modo: "indicativo", tiempo: "trapassato-prossimo" },
     { texto: "loro avevano perso", modo: "indicativo", tiempo: "trapassato-prossimo" },
     { texto: "lei aveva dovuto (Modal)", modo: "indicativo", tiempo: "trapassato-prossimo" },
-    { texto: "noi avevano voluto (Modal)", modo: "indicativo", tiempo: "trapassato-prossimo" },
+    { texto: "noi avevamo voluto (Modal)", modo: "indicativo", tiempo: "trapassato-prossimo" },
     
     { texto: "io comprai", modo: "indicativo", tiempo: "passato-remoto" },
     { texto: "tu ricevesti", modo: "indicativo", tiempo: "passato-remoto" },
@@ -154,8 +153,27 @@ function comprobar(modoSeleccionado, tiempoSeleccionado, elementoCasilla) {
     if (bloqueado) return;
     
     const verboCorrecto = listaJuego[indiceActual];
+    const esCorrecto = (modoSeleccionado === verboCorrecto.modo && tiempoSeleccionado === verboCorrecto.tiempo);
     
-    if (modoSeleccionado === verboCorrecto.modo && tiempoSeleccionado === verboCorrecto.tiempo) {
+    if (esCorrecto) {
         bloqueado = true;
-        elementoCasilla.classList.add("correcto"); 
-        elementoCasilla.classList.remove("correcto");elementoCasilla.querySelector(".casilla-check").innerText = "";indiceActual++;actualizarContador();bloqueado = false;mostrarSiguienteVerbo();}, 1000);} else {bloqueado = true;elementoCasilla.classList.add("incorrecto");elementoCasilla.querySelector(".casilla-check").innerText = "✗";mostrarFeedback(¡Incorrecto! Intenta de nuevo., false);setTimeout(() => {elementoCasilla.classList.remove("incorrecto");elementoCasilla.querySelector(".casilla-check").innerText = "";bloqueado = false;}, 1000);}}function mostrarFeedback(mensaje, persistente) {const bar = document.getElementById("feedback-bar");bar.innerText = mensaje;bar.style.display = "flex";if (!persistente) {setTimeout(() => {bar.style.display = "none";}, 2000);}}window.onload = iniciarJuego;
+        elementoCasilla.classList.add("correcto");
+        elementoCasilla.querySelector(".casilla-check").innerText = "✓";
+             setTimeout(() => {
+               elementoCasilla.classList.remove("correcto");
+                 elementoCasilla.querySelector(".casilla-check").innerText = "";
+                 indiceActual++;
+                 actualizarContador();blocked = false;
+                 mostrarSiguienteVerbo();
+             }, 1000);
+    } else {blocked = true;
+            elementoCasilla.classList.add("incorrecto");
+            elementoCasilla.querySelector(".casilla-check").innerText = "✗";
+            mostrarFeedback("¡Incorrecto! Intenta de nuevo.", false);setTimeout(() => {elementoCasilla.classList.remove("incorrecto");
+            elementoCasilla.querySelector(".casilla-check").innerText = "";
+            blocked = false;}, 1000);
+           }}function mostrarFeedback(mensaje, persistente) {const bar = document.getElementById("feedback-bar");                     
+             bar.innerText = mensaje;bar.style.display = "flex";
+             if (!persistente) {setTimeout(() => {bar.style.display = "none";
+             }, 2000);
+             }}iniciarJuego();  
