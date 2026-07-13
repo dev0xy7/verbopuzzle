@@ -1,0 +1,221 @@
+:root {
+    --indicativo: #2ecc71;
+    --congiuntivo: #e67e22;
+    --condizionale: #3498db;
+    --imperativo: #e74c3c;
+    --bg: #f5f6fa;
+    --text: #2c3e50;
+}
+
+* { 
+    box-sizing: border-box; 
+    margin: 0; 
+    padding: 0; 
+    font-family: 'Segoe UI', sans-serif; 
+}
+
+body { 
+    background: var(--bg); 
+    color: var(--text); 
+    padding: 15px; 
+    display: flex; 
+    flex-direction: column; 
+    align-items: center; 
+}
+
+header { 
+    text-align: center; 
+    margin-bottom: 15px; 
+    width: 100%; 
+    max-width: 480px; 
+}
+
+h1 { 
+    font-size: 26px; 
+    color: #16a085; 
+    font-weight: bold; 
+    letter-spacing: 0.5px; 
+}
+
+.card-verbo {
+    background: #fff; 
+    border: 2px solid #dcdde1; 
+    border-radius: 12px;
+    padding: 22px; 
+    text-align: center; 
+    margin-bottom: 15px; 
+    width: 100%; 
+    max-width: 480px;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.05);
+}
+
+.card-verbo p { 
+    font-size: 14px; 
+    color: #7f8c8d; 
+    font-weight: 500; 
+}
+
+.card-verbo h2 { 
+    font-size: 32px; 
+    color: #2c3e50; 
+    margin: 8px 0; 
+    font-weight: bold; 
+    min-height: 42px; 
+}
+
+.card-verbo .contador { 
+    font-size: 13px; 
+    color: #95a5a6; 
+    font-weight: bold; 
+    text-transform: uppercase; 
+}
+
+.tablero { 
+    width: 100%; 
+    max-width: 480px; 
+    display: flex; 
+    flex-direction: column; 
+    gap: 15px; 
+    margin-bottom: 80px; 
+}
+
+.modo-seccion { 
+    background: #fff; 
+    border-radius: 10px; 
+    padding: 12px; 
+    border: 1px solid #dcdde1; 
+    box-shadow: 0 2px 6px rgba(0,0,0,0.02); 
+}
+
+.modo-titulo { 
+    font-size: 14px; 
+    font-weight: bold; 
+    margin-bottom: 12px; 
+    text-transform: uppercase; 
+    letter-spacing: 0.8px; 
+}
+
+.indicativo-t { color: var(--indicativo); }
+.congiuntivo-t { color: var(--congiuntivo); }
+.condizionale-t { color: var(--condizionale); }
+.imperativo-t { color: var(--imperativo); }
+
+.matriz { 
+    display: grid; 
+    grid-template-columns: 1fr 1fr; 
+    background: #dcdde1; 
+    gap: 2px; 
+    border: 2px solid #dcdde1; 
+    border-radius: 8px; 
+    overflow: hidden; 
+}
+
+.matriz-1col { 
+    grid-template-columns: 1fr; 
+}
+
+.casilla {
+    background: #fff; 
+    padding: 22px 10px 18px 10px; 
+    text-align: center; 
+    cursor: pointer;
+    display: flex; 
+    flex-direction: column; 
+    align-items: center; 
+    justify-content: center; 
+    gap: 8px;
+    transition: background 0.15s ease; 
+    -webkit-tap-highlight-color: transparent;
+    position: relative;
+}
+
+.casilla-nombre { 
+    font-size: 14px; 
+    font-weight: 600; 
+    color: #34495e; 
+}
+
+.casilla-check { 
+    width: 26px; 
+    height: 26px; 
+    border: 2px solid #b2bec3; 
+    border-radius: 6px; 
+    display: flex; 
+    align-items: center; 
+    justify-content: center; 
+    font-weight: 900; 
+    font-size: 16px; 
+    color: #fff; 
+    background: #fff; 
+}
+
+.correcto { 
+    background: #e2fbe8 !important; 
+}
+
+.correcto .casilla-check { 
+    background: #2ecc71; 
+    border-color: #2ecc71; 
+}
+
+.incorrecto { 
+    background: #ffeaa7 !important; 
+    animation: vibrar 0.3s linear; 
+}
+
+.incorrecto .casilla-check { 
+    background: #e17055; 
+    border-color: #e17055; 
+}
+
+@keyframes vibrar {
+    0%, 100% { transform: translateX(0); }
+    20%, 60% { transform: translateX(-4px); }
+    40%, 80% { transform: translateX(4px); }
+}
+
+.feedback-bar {
+    position: fixed; 
+    bottom: 0; 
+    left: 0; 
+    right: 0; 
+    background: #2c3e50; 
+    color: #fff;
+    padding: 15px; 
+    text-align: center; 
+    font-weight: bold; 
+    font-size: 16px; 
+    box-shadow: 0 -4px 10px rgba(0,0,0,0.1);
+    display: none; 
+    justify-content: center; 
+    align-items: center;
+}
+
+.pista-circulo {
+    position: absolute;
+    bottom: 6px;
+    left: 8px;
+    font-size: 11px;
+    font-weight: 800; 
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 18px;
+    z-index: 10; 
+}
+
+.pista-v {
+    width: 18px;
+    border-radius: 50%;
+    color: var(--indicativo);
+    border: 2px solid var(--indicativo);
+    background: rgba(46, 204, 113, 0.15); 
+}
+
+.pista-ss {
+    width: 26px;
+    border-radius: 10px; 
+    color: var(--congiuntivo);
+    border: 2px solid var(--congiuntivo);
+    background: rgba(230, 126, 34, 0.15); 
+}
