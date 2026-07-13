@@ -69,7 +69,7 @@ const bancoVerbos = [
     
     { texto: "io avrò cenato", modo: "indicativo", tiempo: "futuro-anteriore" },
     { texto: "tu avrai venduto", modo: "indicativo", tiempo: "futuro-anteriore" },
-    { texto: "lui sarà arrivato", modo: "indicativo", tiempo: "futuro-anteriore" },
+    { texto: "lui será arrivato", modo: "indicativo", tiempo: "futuro-anteriore" },
     { texto: "noi avremo finito", modo: "indicativo", tiempo: "futuro-anteriore" },
     { texto: "voi avrete dovuto (Modal)", modo: "indicativo", tiempo: "futuro-anteriore" },
     { texto: "loro avranno potuto (Modal)", modo: "indicativo", tiempo: "futuro-anteriore" },
@@ -125,12 +125,12 @@ const bancoVerbos = [
 
 let listaJuego = [];
 let indiceActual = 0;
-let bloqueado = false;
+let blocked = false;
 
 function iniciarJuego() {
     listaJuego = [...bancoVerbos].sort(() => Math.random() - 0.5);
     indiceActual = 0;
-    bloqueado = false;
+    blocked = false;
     actualizarContador();
     mostrarSiguienteVerbo();
 }
@@ -139,7 +139,7 @@ function mostrarSiguienteVerbo() {
     if (indiceActual >= listaJuego.length) {
         document.getElementById("verbo-activo").innerText = "¡Juego Terminado! 🎉";
         mostrarFeedback("¡Completaste todas las conjugaciones!", true);
-        bloqueado = true;
+        blocked = true;
         return;
     }
     document.getElementById("verbo-activo").innerText = listaJuego[indiceActual].texto;
@@ -150,30 +150,45 @@ function actualizarContador() {
 }
 
 function comprobar(modoSeleccionado, tiempoSeleccionado, elementoCasilla) {
-    if (bloqueado) return;
+    if (blocked) return;
     
     const verboCorrecto = listaJuego[indiceActual];
     const esCorrecto = (modoSeleccionado === verboCorrecto.modo && tiempoSeleccionado === verboCorrecto.tiempo);
     
     if (esCorrecto) {
-        bloqueado = true;
+        blocked = true;
         elementoCasilla.classList.add("correcto");
         elementoCasilla.querySelector(".casilla-check").innerText = "✓";
-             setTimeout(() => {
-               elementoCasilla.classList.remove("correcto");
-                 elementoCasilla.querySelector(".casilla-check").innerText = "";
-                 indiceActual++;
-                 actualizarContador();blocked = false;
-                 mostrarSiguienteVerbo();
-             }, 1000);
-    } else {blocked = true;
-            elementoCasilla.classList.add("incorrecto");
-            elementoCasilla.querySelector(".casilla-check").innerText = "✗";
-            mostrarFeedback("¡Incorrecto! Intenta de nuevo.", false);setTimeout(() => {elementoCasilla.classList.remove("incorrecto");
-            elementoCasilla.querySelector(".casilla-check").innerText = "";
-            blocked = false;}, 1000);
-           }}function mostrarFeedback(mensaje, persistente) {const bar = document.getElementById("feedback-bar");                     
-             bar.innerText = mensaje;bar.style.display = "flex";
-             if (!persistente) {setTimeout(() => {bar.style.display = "none";
-             }, 2000);
-             }}iniciarJuego();  
+        
+        setTimeout(() => {
+
+elementoCasilla.classList.remove("correcto");
+elementoCasilla.querySelector(".casilla-check").innerText = "";
+indiceActual++;
+actualizarContador();
+blocked = false;
+mostrarSiguienteVerbo();
+}, 1000);
+} else {
+blocked = true;
+elementoCasilla.classList.add("incorrecto");
+elementoCasilla.querySelector(".casilla-check").innerText = "✗";
+mostrarFeedback("¡Incorrecto! Intenta de nuevo.", false);
+setTimeout(() => {
+elementoCasilla.classList.remove("incorrecto");
+elementoCasilla.querySelector(".casilla-check").innerText = "";
+blocked = false;
+}, 1000);
+}
+}
+function mostrarFeedback(mensaje, persistente) {
+const bar = document.getElementById("feedback-bar");
+bar.innerText = mensaje;
+bar.style.display = "flex";
+if (!persistente) {
+setTimeout(() => {
+bar.style.display = "none";
+}, 2000);
+}
+}
+iniciarJuego();
