@@ -647,9 +647,9 @@ const bancoVerbos = [
 
 let listaJuego = [];
 let indiceActual = 0;
-let blocked = false;
+let bloqueado = false;
 
-// VARIABLES NUEVAS: Contadores globales de la sesión
+// VARIABLES NUEVAS: Contadores globales de la sesión (Aciertos y Errores)
 let totalAciertos = 0;
 let totalErrores = 0;
 
@@ -658,137 +658,15 @@ function iniciarJuego() {
     indiceActual = 0;
     totalAciertos = 0;
     totalErrores = 0;
-    blocked = false;
-    actualizarContador();
-    mostrarSiguienteVerbo();
-}
-
-function mostrarSiguienteVerbo() {
-    if (indiceActual >= listaJuego.length) {
-        abrirPantallaResultados();
-        return;
-    }
-    document.getElementById("verbo-activo").innerText = listaJuego[indiceActual].texto;
-}
-
-function actualizarContador() {
-    document.getElementById("contador").innerText = `Progreso: ${indiceActual} / ${listaJuego.length}`;
-}
-
-function comprobar(modoSeleccionado, tiempoSeleccionado, elementoCasilla) {
-    if (blocked) return;
-    
-    const verboCorrecto = listaJuego[indiceActual];
-    const esCorrecto = (modoSeleccionado === verboCorrecto.modo && tiempoSeleccionado === verboCorrecto.tiempo);
-    
-    if (esCorrecto) {
-        blocked = true;
-        totalAciertos++; // Suma al reporte final
-        elementoCasilla.classList.add("correcto");
-        elementoCasilla.querySelector(".casilla-check").innerText = "✓";
-        
-        setTimeout(() => {
-            elementoCasilla.classList.remove("correcto");
-            elementoCasilla.querySelector(".casilla-check").innerText = "";
-            indiceActual++;
-            actualizarContador();
-            blocked = false;
-            mostrarSiguienteVerbo();
-        }, 1000);
-    } else {
-        blocked = true;
-        totalErrores++; // Suma a la estadística de fallas
-        elementoCasilla.classList.add("incorrecto");
-        elementoCasilla.querySelector(".casilla-check").innerText = "✗";
-        mostrarFeedback("¡Incorrecto! Intenta de nuevo.", false);
-        
-        setTimeout(() => {
-            elementoCasilla.classList.remove("incorrecto");
-            elementoCasilla.querySelector(".casilla-check").innerText = "";
-            blocked = false;
-        }, 1000);
-    }
-}
-
-function mostrarFeedback(mensaje, persistente) {
-    const bar = document.getElementById("feedback-bar");
-    bar.innerText = mensaje;
-    bar.style.display = "flex";
-    
-    if (!persistente) {
-        setTimeout(() => {
-            bar.style.display = "none";
-        }, 2000);
-    }
-}
-
-// FUNCIONES NUEVAS: Control de apertura, cálculo y cierre de estadísticas
-function terminarJuegoManualmente() {
-    abrirPantallaResultados();
-}
-
-function abrirPantallaResultados() {
-    blocked = true;
-    
-    // Calcular porcentaje de efectividad pedagógica
-    const totalRespondido = totalAciertos + totalErrores;
-    let porcentaje = 0;
-    if (totalRespondido > 0) {
-        porcentaje = Math.round((totalAciertos / totalRespondido) * 100);
-    }
-    
-    // Inyectar datos en la pantalla flotante del HTML
-    document.getElementById("resumen-aciertos").innerText = totalAciertos;
-    document.getElementById("resumen-errores").innerText = totalErrores;
-    document.getElementById("resumen-porcentaje").innerText = porcentaje + "%";
-    
-    // Mostrar la ventana flotante
-    document.getElementById("modal-resultados").style.display = "flex";
-}
-
-function cerrarResultadosYReiniciar() {
-    // Ocultar modal y reordenar el bolillero desde cero
-    document.getElementById("modal-resultados").style.display = "none";
-    iniciarJuego();
-}
-
-
-/* ================================================================= */
-/* RESPALDO HISTÓRICO (INACTIVO): Tu código de control anterior      */
-/* Guardado como registro de avances. El navegador no lo ejecuta     */
-/* ================================================================= */
-/*
-function mostrarSiguienteVerbo() {
-    if (indiceActual >= listaJuego.length) {
-        document.getElementById("verbo-activo").innerText = "¡Juego Terminado! 🎉";
-        mostrarFeedback("¡Completaste todas las conjugaciones!", true);
-        bloqueado = true;
-        return;
-    }
-    document.getElementById("verbo-activo").innerText = listaJuego[indiceActual].texto;
-}
-*/
-/* ================================================================= */
-
-/*iniciarJuego();
-
-let listaJuego = [];
-let indiceActual = 0;
-let bloqueado = false;
-
-function iniciarJuego() {
-    listaJuego = [...bancoVerbos].sort(() => Math.random() - 0.5);
-    indiceActual = 0;
     bloqueado = false;
     actualizarContador();
     mostrarSiguienteVerbo();
 }
 
 function mostrarSiguienteVerbo() {
+    // Si se acaban los verbos, abre automáticamente la pantalla de estadísticas
     if (indiceActual >= listaJuego.length) {
-        document.getElementById("verbo-activo").innerText = "¡Juego Terminado!🎉";
-        mostrarFeedback("¡Completaste todas las conjugaciones!", true);
-        bloqueado = true;
+        abrirPantallaResultados();
         return;
     }
     document.getElementById("verbo-activo").innerText = listaJuego[indiceActual].texto;
@@ -802,9 +680,11 @@ function comprobar(modoSeleccionado, tiempoSeleccionado, elementoCasilla) {
     if (bloqueado) return;
     
     const verboCorrecto = listaJuego[indiceActual];
+    const esCorrecto = (modoSeleccionado === verboCorrecto.modo && tiempoSeleccionado === verboCorrecto.tiempo);
     
-    if (modoSeleccionado === verboCorrecto.modo && tiempoSeleccionado === verboCorrecto.tiempo) {
+    if (esCorrecto) {
         bloqueado = true;
+        totalAciertos++; // Suma un acierto al reporte final
         elementoCasilla.classList.add("correcto");
         elementoCasilla.querySelector(".casilla-check").innerText = "✓";
         mostrarFeedback("¡Es correcto! 🌟", true);
@@ -819,6 +699,7 @@ function comprobar(modoSeleccionado, tiempoSeleccionado, elementoCasilla) {
         }, 1200);
     } else {
         bloqueado = true;
+        totalErrores++; // Suma un error al reporte final
         elementoCasilla.classList.add("incorrecto");
         mostrarFeedback("Respuesta incorrecta, ¡intenta otra vez! ❌", false);
         
@@ -847,6 +728,52 @@ function mostrarFeedback(mensaje, esCorrecto) {
     }
 }
 
-// Inicializar el juego de forma automática cuando cargue el script
-window.onload = iniciarJuego;
+// FUNCIONES NUEVAS: Control de apertura, cálculo y cierre de estadísticas
+function terminarJuegoManualmente() {
+    abrirPantallaResultados();
+}
 
+function abrirPantallaResultados() {
+    bloqueado = true;
+    
+    // Calcular porcentaje de efectividad pedagógica
+    const totalRespondido = totalAciertos + totalErrores;
+    let porcentaje = 0;
+    if (totalRespondido > 0) {
+        porcentaje = Math.round((totalAciertos / totalRespondido) * 100);
+    }
+    
+    // Inyectar datos en la pantalla flotante del HTML
+    document.getElementById("resumen-aciertos").innerText = totalAciertos;
+    document.getElementById("resumen-errores").innerText = totalErrores;
+    document.getElementById("resumen-porcentaje").innerText = porcentaje + "%";
+    
+    // Mostrar la ventana flotante sobre el tablero
+    document.getElementById("modal-resultados").style.display = "flex";
+}
+
+function cerrarResultadosYReiniciar() {
+    // Ocultar modal y reordenar el bolillero desde cero
+    document.getElementById("modal-resultados").style.display = "none";
+    iniciarJuego();
+}
+
+/* ================================================================= */
+/* RESPALDO HISTÓRICO (INACTIVO): Tu código de control anterior      */
+/* Guardado como registro de avances. El navegador no lo ejecuta     */
+/* ================================================================= */
+/*
+function mostrarSiguienteVerbo() {
+    if (indiceActual >= listaJuego.length) {
+        document.getElementById("verbo-activo").innerText = "¡Juego Terminado! 🎉";
+        mostrarFeedback("¡Completaste todas las conjugaciones!", true);
+        bloqueado = true;
+        return;
+    }
+    document.getElementById("verbo-activo").innerText = listaJuego[indiceActual].texto;
+}
+*/
+/* ================================================================= */
+
+// Arranca el juego de forma automática apenas carga la página
+iniciarJuego();
