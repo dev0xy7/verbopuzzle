@@ -6,6 +6,18 @@
     <title>VerboPuzzle Italiano</title>
     <!-- Vinculación con el archivo CSS externo -->
     <link rel="stylesheet" href="style.css">
+    <!-- Enlace al archivo de configuración de la App -->
+    <link rel="manifest" href="manifest.json">
+    <meta name="theme-color" content="#16a085">
+    
+    <!-- Script interno para activar el modo App en celulares -->
+    <script>
+        if ('serviceWorker' in navigator) {
+            navigator.serviceWorker.register('./sw.js')
+                .then(() => console.log('Modo App Activo'))
+                .catch(err => console.log('Error al activar Modo App', err));
+        }
+    </script>
 </head>
 <body>
 
