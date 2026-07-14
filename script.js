@@ -647,6 +647,133 @@ const bancoVerbos = [
 
 let listaJuego = [];
 let indiceActual = 0;
+let blocked = false;
+
+// VARIABLES NUEVAS: Contadores globales de la sesión
+let totalAciertos = 0;
+let totalErrores = 0;
+
+function iniciarJuego() {
+    listaJuego = [...bancoVerbos].sort(() => Math.random() - 0.5);
+    indiceActual = 0;
+    totalAciertos = 0;
+    totalErrores = 0;
+    blocked = false;
+    actualizarContador();
+    mostrarSiguienteVerbo();
+}
+
+function mostrarSiguienteVerbo() {
+    if (indiceActual >= listaJuego.length) {
+        abrirPantallaResultados();
+        return;
+    }
+    document.getElementById("verbo-activo").innerText = listaJuego[indiceActual].texto;
+}
+
+function actualizarContador() {
+    document.getElementById("contador").innerText = `Progreso: ${indiceActual} / ${listaJuego.length}`;
+}
+
+function comprobar(modoSeleccionado, tiempoSeleccionado, elementoCasilla) {
+    if (blocked) return;
+    
+    const verboCorrecto = listaJuego[indiceActual];
+    const esCorrecto = (modoSeleccionado === verboCorrecto.modo && tiempoSeleccionado === verboCorrecto.tiempo);
+    
+    if (esCorrecto) {
+        blocked = true;
+        totalAciertos++; // Suma al reporte final
+        elementoCasilla.classList.add("correcto");
+        elementoCasilla.querySelector(".casilla-check").innerText = "✓";
+        
+        setTimeout(() => {
+            elementoCasilla.classList.remove("correcto");
+            elementoCasilla.querySelector(".casilla-check").innerText = "";
+            indiceActual++;
+            actualizarContador();
+            blocked = false;
+            mostrarSiguienteVerbo();
+        }, 1000);
+    } else {
+        blocked = true;
+        totalErrores++; // Suma a la estadística de fallas
+        elementoCasilla.classList.add("incorrecto");
+        elementoCasilla.querySelector(".casilla-check").innerText = "✗";
+        mostrarFeedback("¡Incorrecto! Intenta de nuevo.", false);
+        
+        setTimeout(() => {
+            elementoCasilla.classList.remove("incorrecto");
+            elementoCasilla.querySelector(".casilla-check").innerText = "";
+            blocked = false;
+        }, 1000);
+    }
+}
+
+function mostrarFeedback(mensaje, persistente) {
+    const bar = document.getElementById("feedback-bar");
+    bar.innerText = mensaje;
+    bar.style.display = "flex";
+    
+    if (!persistente) {
+        setTimeout(() => {
+            bar.style.display = "none";
+        }, 2000);
+    }
+}
+
+// FUNCIONES NUEVAS: Control de apertura, cálculo y cierre de estadísticas
+function terminarJuegoManualmente() {
+    abrirPantallaResultados();
+}
+
+function abrirPantallaResultados() {
+    blocked = true;
+    
+    // Calcular porcentaje de efectividad pedagógica
+    const totalRespondido = totalAciertos + totalErrores;
+    let porcentaje = 0;
+    if (totalRespondido > 0) {
+        porcentaje = Math.round((totalAciertos / totalRespondido) * 100);
+    }
+    
+    // Inyectar datos en la pantalla flotante del HTML
+    document.getElementById("resumen-aciertos").innerText = totalAciertos;
+    document.getElementById("resumen-errores").innerText = totalErrores;
+    document.getElementById("resumen-porcentaje").innerText = porcentaje + "%";
+    
+    // Mostrar la ventana flotante
+    document.getElementById("modal-resultados").style.display = "flex";
+}
+
+function cerrarResultadosYReiniciar() {
+    // Ocultar modal y reordenar el bolillero desde cero
+    document.getElementById("modal-resultados").style.display = "none";
+    iniciarJuego();
+}
+
+
+/* ================================================================= */
+/* RESPALDO HISTÓRICO (INACTIVO): Tu código de control anterior      */
+/* Guardado como registro de avances. El navegador no lo ejecuta     */
+/* ================================================================= */
+/*
+function mostrarSiguienteVerbo() {
+    if (indiceActual >= listaJuego.length) {
+        document.getElementById("verbo-activo").innerText = "¡Juego Terminado! 🎉";
+        mostrarFeedback("¡Completaste todas las conjugaciones!", true);
+        bloqueado = true;
+        return;
+    }
+    document.getElementById("verbo-activo").innerText = listaJuego[indiceActual].texto;
+}
+*/
+/* ================================================================= */
+
+/*iniciarJuego();
+
+let listaJuego = [];
+let indiceActual = 0;
 let bloqueado = false;
 
 function iniciarJuego() {
