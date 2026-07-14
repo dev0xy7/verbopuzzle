@@ -89,6 +89,12 @@ const bancoVerbos = [
     { texto: "io andrò", modo: "indicativo", tiempo: "futuro-semplice" },
     { texto: "noi faremo", modo: "indicativo", tiempo: "futuro-semplice" },
     { texto: "loro saranno", modo: "indicativo", tiempo: "futuro-semplice" },
+    { texto: "io mi sveglierò", modo: "indicativo", tiempo: "futuro-semplice" },
+    { texto: "tu ti laverai", modo: "indicativo", tiempo: "futuro-semplice" },
+    { texto: "lui si vestirà", modo: "indicativo", tiempo: "futuro-semplice" },
+    { texto: "noi ci divertiremo", modo: "indicativo", tiempo: "futuro-semplice" },
+    { texto: "voi vi annoierete", modo: "indicativo", tiempo: "futuro-semplice" },
+    { texto: "loro si arrabbieranno", modo: "indicativo", tiempo: "futuro-semplice" },
 
     // Futuro Anteriore
     { texto: "io avrò cenato", modo: "indicativo", tiempo: "futuro-anteriore" },
@@ -99,6 +105,11 @@ const bancoVerbos = [
     { texto: "loro avranno potuto", modo: "indicativo", tiempo: "futuro-anteriore" },
     { texto: "lei sarà andata", modo: "indicativo", tiempo: "futuro-anteriore" },
     { texto: "io avrò fatto", modo: "indicativo", tiempo: "futuro-anteriore" },
+    { texto: "io mi sarò lavato", modo: "indicativo", tiempo: "futuro-anteriore" },
+    { texto: "tu ti sarai svegliato", modo: "indicativo", tiempo: "futuro-anteriore" },
+    { texto: "lei si sarà vestita", modo: "indicativo", tiempo: "futuro-anteriore" },
+    { texto: "noi ci saremo divertiti", modo: "indicativo", tiempo: "futuro-anteriore" },
+    { texto: "loro si saranno arrabbiati", modo: "indicativo", tiempo: "futuro-anteriore" },
 
     // --- MODO CONGIUNTIVO ---
     // Presente
@@ -112,6 +123,10 @@ const bancoVerbos = [
     { texto: "che voi sappiate", modo: "congiuntivo", tiempo: "presente" },
     { texto: "che io vada", modo: "congiuntivo", tiempo: "presente" },
     { texto: "che loro facciano", modo: "congiuntivo", tiempo: "presente" },
+    { texto: "che io mi lavi", modo: "congiuntivo", tiempo: "presente" },
+    { texto: "che tu ti svegli", modo: "congiuntivo", tiempo: "presente" },
+    { texto: "che noi ci vestiamo", modo: "congiuntivo", tiempo: "presente" },
+    { texto: "che loro si divertano", modo: "congiuntivo", tiempo: "presente" },
 
     // Passato
     { texto: "che io abbia studiato", modo: "congiuntivo", tiempo: "passato" },
@@ -131,6 +146,10 @@ const bancoVerbos = [
     { texto: "che tu sapessi", modo: "congiuntivo", tiempo: "imperfetto" },
     { texto: "che io fossi", modo: "congiuntivo", tiempo: "imperfetto" },
     { texto: "che noi facessimo", modo: "congiuntivo", tiempo: "imperfetto" },
+    { texto: "che io mi lavassi", modo: "congiuntivo", tiempo: "imperfetto" },
+    { texto: "che tu ti vestissi", modo: "congiuntivo", tiempo: "imperfetto" },
+    { texto: "che noi ci divertissimo", modo: "congiuntivo", tiempo: "imperfetto" },
+    { texto: "che loro si svegliassero", modo: "congiuntivo", tiempo: "imperfetto" },
 
     // Trapassato
     { texto: "che io avessi viaggiato", modo: "congiuntivo", tiempo: "trapassato" },
@@ -151,6 +170,9 @@ const bancoVerbos = [
     { texto: "noi sapremmo", modo: "condizionale", tiempo: "presente" },
     { texto: "voi andreste", modo: "condizionale", tiempo: "presente" },
     { texto: "loro farebbero", modo: "condizionale", tiempo: "presente" },
+    { texto: "io mi laverei", modo: "condizionale", tiempo: "presente" },
+    { texto: "tu ti vestiresti", modo: "condizionale", tiempo: "presente" },
+    { texto: "noi ci divertiremmo", modo: "condizionale", tiempo: "presente" },
 
     // Passato
     { texto: "io avrei pranzato", modo: "condizionale", tiempo: "passato" },
@@ -159,6 +181,9 @@ const bancoVerbos = [
     { texto: "loro avrebbero voluto", modo: "condizionale", tiempo: "passato" },
     { texto: "lei sarebbe andata", modo: "condizionale", tiempo: "passato" },
     { texto: "voi avreste fatto", modo: "condizionale", tiempo: "passato" },
+     { texto: "io mi sarei lavato", modo: "condizionale", tiempo: "passato" },
+    { texto: "tu ti saresti vestito", modo: "condizionale", tiempo: "passato" },
+    { texto: "loro si sarebbero divertiti", modo: "condizionale", tiempo: "passato" },
 
     // --- MODO IMPERATIVO ---
     // Presente
