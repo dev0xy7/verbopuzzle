@@ -281,19 +281,41 @@ h1 {
     margin-bottom: 6px;
 }
 /* --- ESTILOS DE LA PANTALLA DE RESULTADOS --- */
-.btn-salir {
-    margin-top: 12px;
-    background: #e74c3c;
-    color: white;
-    border: none;
-    padding: 8px 16px;
-    border-radius: 6px;
-    font-size: 13px;
-    font-weight: bold;
-    cursor: pointer;
-    transition: background 0.15s;
+
+.btn-salir{
+
+    width:100%;
+
+    background:#16a085;
+
+    color:white;
+
+    border:none;
+
+    border-radius:16px;
+
+    padding:16px;
+
+    font-size:18px;
+
+    font-weight:700;
+
+    cursor:pointer;
+
+    transition:.25s;
+
+    box-shadow:0 6px 18px rgba(22,160,133,.25);
+
 }
-.btn-salir:hover { background: #c0392b; }
+
+.btn-salir:hover{
+
+    transform:translateY(-2px);
+
+    background:#138d75;
+
+}
+
 
 .modal-resultados {
     display: none; /* Oculto por defecto */
