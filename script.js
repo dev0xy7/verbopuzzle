@@ -705,7 +705,6 @@ function iniciarJuego() {
     totalErrores = 0;
     bloqueado = false;
 
-    actualizarContador();
     mostrarSiguienteVerbo();
 
 }
@@ -718,9 +717,6 @@ function mostrarSiguienteVerbo() {
     document.getElementById("verbo-activo").innerText = listaJuego[indiceActual].texto;
 }
 
-function actualizarContador() {
-    document.getElementById("contador").innerText = `Progreso: ${indiceActual} / ${listaJuego.length}`;
-}
 
 function comprobar(modoSeleccionado, tiempoSeleccionado, elementoCasilla) {
     if (bloqueado) return;
@@ -739,7 +735,6 @@ function comprobar(modoSeleccionado, tiempoSeleccionado, elementoCasilla) {
             elementoCasilla.classList.remove("correcto");
             elementoCasilla.querySelector(".casilla-check").innerText = "";
             indiceActual++;
-            actualizarContador();
             bloqueado = false;
             mostrarSiguienteVerbo();
         }, 1200);
