@@ -64,18 +64,29 @@
         <button class="btn-salir" onclick="terminarJuegoManualmente()">Finalizar y ver resultados</button>
     </div>
 
-    <!-- Pantalla flotante de resultados (Modal) -->
-    <div class="modal-resultados" id="modal-resultados">
-        <div class="modal-contenido">
-            <h2>📊 Resumen del Juego</h2>
-            <div class="modal-stats">
-                <p>✅ Aciertos: <span id="resumen-aciertos">0</span></p>
-                <p>❌ Errores: <span id="resumen-errores">0</span></p>
-                <p>🎯 Efectividad: <span id="resumen-porcentaje">0%</span></p>
-            </div>
-            <button class="btn-reiniciar" onclick="cerrarResultadosYReiniciar()">Volver a empezar</button>
+<!-- Pantalla flotante de resultados (Modal) -->
+<div class="modal-resultados" id="modal-resultados">
+
+    <div class="modal-contenido">
+        <h2>📊 Risultati della partita</h2>
+
+        <div class="modal-stats">
+            <p>✅ Risposte corrette: <span id="resumen-aciertos">0</span></p>
+
+            <p>❌ Errori: <span id="resumen-errores">0</span></p>
+
+            <p>🎯 Precisione: <span id="resumen-porcentaje">0%</span></p>
         </div>
+
+        <button class="btn-reiniciar" onclick="cerrarResultadosYReiniciar()">
+            Scegli un altro livello
+        </button>
     </div>
+
+</div>
+
+   
+   
  <!-- ================================================================= -->
     <!-- RESPALDO HISTÓRICO (INACTIVO): Tu código anterior guardado de recuerdo -->
     <!-- El navegador ignora todo lo que está acá adentro porque tiene etiquetas de comentario -->
