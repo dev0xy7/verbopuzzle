@@ -321,6 +321,7 @@ h1 {
 }
 .btn-reiniciar:hover { background: #117a65;
 }
+
 /* ===================================================== */
 /* PANTALLA DE SELECCIÓN DE NIVEL */
 /* ===================================================== */
@@ -328,66 +329,87 @@ h1 {
 .pantalla-inicio{
     width:100%;
     max-width:520px;
+    margin:30px auto;
     display:flex;
     flex-direction:column;
-    gap:18px;
-    margin-top:20px;
     align-items:center;
+    gap:18px;
 }
 
 .pantalla-inicio h2{
+    width:100%;
+    text-align:center;
+    color:#16a085;
+    font-size:42px;
+    font-weight:700;
+    margin:0;
+}
+
+.subtitulo{
+    width:100%;
+    text-align:center;
+    color:#555;
+    font-size:19px;
+    line-height:1.5;
+    font-style:italic;
+    margin:0 0 12px 0;
+}
+
+.pantalla-inicio h3{
+    width:100%;
     text-align:center;
     color:#2c3e50;
-    font-size:28px;
-    margin-bottom:10px;
+    font-size:24px;
+    font-weight:600;
+    margin-bottom:8px;
 }
 
 .btn-nivel{
     width:100%;
+    background:#fff;
     border:none;
-    border-radius:14px;
-    background:white;
-    padding:18px;
-    text-align:left;
+    border-radius:18px;
+    padding:22px;
+    text-align:center;
+    font-size:24px;
+    font-weight:bold;
+    color:#2c3e50;
     cursor:pointer;
-    font-size:18px;
-    box-shadow:0 4px 12px rgba(0,0,0,.08);
-    transition:.2s;
+    box-shadow:0 6px 18px rgba(0,0,0,.10);
+    transition:all .25s ease;
 }
 
 .btn-nivel:hover{
-    transform:translateY(-2px);
-    box-shadow:0 8px 18px rgba(0,0,0,.15);
+    transform:translateY(-4px);
+    box-shadow:0 10px 24px rgba(0,0,0,.18);
 }
 
 .btn-nivel strong{
-    display:block;
-    font-size:22px;
-    margin-bottom:6px;
-}
-
-.btn-nivel small{
-    color:#666;
-    font-size:15px;
+    font-size:24px;
+    font-weight:700;
 }
 
 .btn-deshabilitado{
     opacity:.45;
     cursor:not-allowed;
 }
-.subtitulo{
-    text-align:center;
-    color:#555;
-    font-size:18px;
-    line-height:1.5;
-    margin-top:-8px;
-    margin-bottom:10px;
-    font-style:italic;
+
+.btn-nivel:nth-of-type(1){
+    border-left:8px solid #27ae60;
 }
 
-.pantalla-inicio h3{
-    text-align:center;
-    color:#2c3e50;
-    font-size:22px;
-    margin-bottom:8px;
+.btn-nivel:nth-of-type(2){
+    border-left:8px solid #f39c12;
 }
+
+.btn-nivel:nth-of-type(3){
+    border-left:8px solid #8e44ad;
+}
+
+.btn-nivel:nth-of-type(4){
+    border-left:8px solid #7f8c8d;
+}
+
+
+
+
