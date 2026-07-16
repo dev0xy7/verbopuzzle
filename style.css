@@ -169,12 +169,13 @@ h1 {
     position: relative;
 }
  
-.casilla-nombre { 
-    font-size: 14px; 
-    font-weight: 600; 
-    color: #34495e; 
+.casilla-nombre{
+    font-size:17px;
+    font-weight:700;
+    line-height:1.3;
+    color:#2c3e50;
 }
- 
+
 .casilla-check { 
     width: 26px; 
     height: 26px; 
