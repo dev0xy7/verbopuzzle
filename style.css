@@ -132,26 +132,35 @@ h1 {
     border-bottom: 1px solid #dcdde1;
 }
  
-.casilla {
-    background: #fff; 
-    padding: 22px 10px 18px 10px; 
-    text-align: center; 
-    cursor: pointer;
-    display: flex; 
-    flex-direction: column; 
-    align-items: center; 
-    justify-content: center; 
-    gap: 8px;
-    transition: background 0.15s ease; 
-    -webkit-tap-highlight-color: transparent;
-    position: relative;
+.casilla{
+    background:white;
+    min-height:84px;
+    display:flex;
+    flex-direction:column;
+    justify-content:center;
+    align-items:center;
+    gap:8px;
+    cursor:pointer;
+    position:relative;
+    transition:.18s;
 }
- 
+
+.casilla:hover{
+    background:#f8fbfd;
+}
+
+.casilla:active{
+    transform:scale(.98);
+}
+
+
 .casilla-nombre{
-    font-size:17px;
-    font-weight:700;
-    line-height:1.3;
+    font-size:15px;
+    font-weight:600;
     color:#2c3e50;
+    text-align:center;
+    line-height:1.3;
+    padding:0 6px;
 }
 
 .casilla-check { 
