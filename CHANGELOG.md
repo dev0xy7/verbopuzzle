@@ -33,4 +33,9 @@ Todos los cambios importantes del proyecto se documentan en este archivo.
 - Tempi da ripassare.
 - Consiglio personalizzato.
 
+## [1.3.0-dev]
 
+- Creado entorno de desarrollo (/dev)
+- Separado código estable del código en desarrollo
+- Incorporada la estructura del historial pedagógico
+- Corregidos errores de sintaxis durante la refactorización
