@@ -24,7 +24,33 @@
     <header>
         <h1>🇮🇹 VerboPuzzle</h1>
     </header>
+<div id="pantalla-inicio" class="pantalla-inicio">
 
+    <h2>Elegí tu nivel</h2>
+
+    <button class="btn-nivel" onclick="seleccionarNivel('a1')">
+        <strong>🟢 A0 - A1</strong><br>
+        <small>Presente · Passato Prossimo · Futuro Semplice</small>
+    </button>
+
+    <button class="btn-nivel" onclick="seleccionarNivel('b1')">
+        <strong>🟡 B1 - B2</strong><br>
+        <small>+ Imperfetto · Condizionale · Imperativo</small>
+    </button>
+
+    <button class="btn-nivel" onclick="seleccionarNivel('bplus')">
+        <strong>🔴 B+</strong><br>
+        <small>Todos los tiempos verbales</small>
+    </button>
+
+    <button class="btn-nivel btn-deshabilitado" disabled>
+        <strong>⚙ Personalizado</strong><br>
+        <small>Próximamente</small>
+    </button>
+
+</div>
+
+<div id="juego" style="display:none;">
  <!-- ================================================================= -->
     <!-- NUEVA VERSIÓN (ACTIVA): Con botón de salir y pantalla de resultados -->
     <!-- ================================================================= -->
@@ -110,10 +136,12 @@
             </div>
         </div>
     </div>
+<div class="feedback-bar" id="feedback-bar"></div>
 
-    <div class="feedback-bar" id="feedback-bar"></div>
+</div>
 
-    <!-- Vinculación con el archivo JavaScript externo -->
-    <script src="script.js"></script>
+<script src="script.js"></script>
 </body>
 </html>
+    
+
