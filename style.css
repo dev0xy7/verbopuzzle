@@ -60,36 +60,21 @@ h1 {
 }
 
 .card-verbo p{
-
     font-size:18px;
-
     font-weight:600;
-
     color:#7f8c8d;
-
     line-height:1.5;
-
     margin-bottom:18px;
-
 }
 
 .card-verbo h2{
-
     font-size:42px;
-
     font-weight:800;
-
     color:#2c3e50;
-
     letter-spacing:.5px;
-
     margin-bottom:22px;
-
     min-height:54px;
-
 }
-
-
 
  
 .card-verbo .contador { 
@@ -107,23 +92,27 @@ h1 {
     gap: 15px; 
     margin-bottom: 80px; 
 }
- 
-.modo-seccion { 
-    background: #fff; 
-    border-radius: 10px; 
-    padding: 12px; 
-    border: 1px solid #dcdde1; 
-    box-shadow: 0 2px 6px rgba(0,0,0,0.02); 
+
+.modo-seccion{
+    background:#ffffff;
+    border-radius:18px;
+    padding:0 18px 20px;
+    border:1px solid #e3e7eb;
+    box-shadow:0 8px 24px rgba(0,0,0,.05);
+    overflow:hidden;
 }
- 
-.modo-titulo { 
-    font-size: 14px; 
-    font-weight: bold; 
-    margin-bottom: 12px; 
-    text-transform: uppercase; 
-    letter-spacing: 0.8px; 
+
+.modo-titulo{
+    text-align:center;
+    font-size:20px;
+    font-weight:700;
+    text-transform:uppercase;
+    letter-spacing:1.2px;
+    margin:14px 0 18px 0;
+    user-select:none;
 }
- 
+
+
 .indicativo-t { color: var(--indicativo); }
 .congiuntivo-t { color: var(--congiuntivo); }
 .condizionale-t { color: var(--condizionale); }
@@ -461,6 +450,30 @@ h1 {
     border-left:8px solid #7f8c8d;
 }
 
+/* Línea superior de cada modo */
 
+.indicativo-top{
+    height:6px;
+    background:#27AE60;
+    margin:0 -18px 14px;
+}
+
+.congiuntivo-top{
+    height:6px;
+    background:#E67E22;
+    margin:0 -18px 14px;
+}
+
+.condizionale-top{
+    height:6px;
+    background:#2980B9;
+    margin:0 -18px 14px;
+}
+
+.imperativo-top{
+    height:6px;
+    background:#C0392B;
+    margin:0 -18px 14px;
+}
 
 
