@@ -374,3 +374,19 @@ h1 {
     opacity:.45;
     cursor:not-allowed;
 }
+.subtitulo{
+    text-align:center;
+    color:#555;
+    font-size:18px;
+    line-height:1.5;
+    margin-top:-8px;
+    margin-bottom:10px;
+    font-style:italic;
+}
+
+.pantalla-inicio h3{
+    text-align:center;
+    color:#2c3e50;
+    font-size:22px;
+    margin-bottom:8px;
+}
