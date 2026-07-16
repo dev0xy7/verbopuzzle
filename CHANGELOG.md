@@ -1,24 +1,36 @@
-# VerboPuzzle
+# CHANGELOG
 
-## v1.3.0
-
-- Nuevo informe pedagógico
-- Modo migliore
-- Da ripassare
-- Tempi riconosciuti
-- Tempi da ripassare
-- Consejos automáticos
+Todos los cambios importantes del proyecto se documentan en este archivo.
 
 ---
 
-## v1.2.0
+## [1.2.0] - 2026-07-16
 
-- Nuevo diseño de matrices
-- Selección de niveles
-- Modal de resultados
+### Añadido
+
+- Pantalla de selección de nivel.
+- Nuevo diseño del tablero.
+- Tarjetas por modo verbal.
+- Modal de resultados.
+- Botón "Concludi la partita".
+
+### Mejorado
+
+- Diseño responsive.
+- Matrices más claras.
+- Colores por modo verbal.
 
 ---
 
-## v1.1.0
+## Próxima versión (1.3.0)
 
-- Primer tablero funcional
+### En desarrollo
+
+- Informe pedagógico.
+- Modo migliore.
+- Da ripassare.
+- Tempi riconosciuti.
+- Tempi da ripassare.
+- Consiglio personalizzato.
+
+
