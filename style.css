@@ -129,16 +129,15 @@ h1 {
 .condizionale-t { color: var(--condizionale); }
 .imperativo-t { color: var(--imperativo); }
  
-.matriz { 
-    display: grid; 
-    grid-template-columns: 1fr 1fr; 
-    background: #dcdde1; 
-    gap: 2px; 
-    border: 2px solid #dcdde1; 
-    border-radius: 8px; 
-    overflow: hidden; 
+.matriz{
+    display:grid;
+    grid-template-columns:1fr 1fr;
+    gap:12px;
+    background:transparent;
+    border:none;
+    overflow:visible;
 }
- 
+
 .matriz-1col { 
     grid-template-columns: 1fr; 
 }
