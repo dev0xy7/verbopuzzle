@@ -107,9 +107,8 @@ h1 {
     font-size:20px;
     font-weight:700;
     text-transform:uppercase;
-    letter-spacing:1.2px;
-    margin:14px 0 18px 0;
-    user-select:none;
+    letter-spacing:1.5px;
+    margin-bottom:16px;
 }
 
 
@@ -250,25 +249,34 @@ h1 {
     background: rgba(230, 126, 34, 0.15); 
 }
 /* Para los modos con 1 y 2 (Separa las dos columnas) */
-.columnas-num {
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    text-align: center;
-    font-size: 15px;
-    font-weight: bold;
-    color: #7f8c8d;
-    margin-bottom: 6px;
-    padding: 0 4px;
+
+.columnas-num{
+    display:grid;
+    grid-template-columns:1fr 1fr;
+    text-align:center;
+    font-size:15px;
+    font-weight:700;
+    color:#7f8c8d;
+    background:#f7f9fb;
+    border:1px solid #dfe6e9;
+    border-bottom:none;
+    border-radius:10px 10px 0 0;
+    padding:10px 0;
 }
 
 /* Para el Modo Imperativo (Centra el número 1 solito) */
-.columna-unica {
-    text-align: center;
-    font-size: 15px;
-    font-weight: bold;
-    color: #7f8c8d;
-    margin-bottom: 6px;
+.columna-unica{
+    text-align:center;
+    font-size:15px;
+    font-weight:700;
+    color:#7f8c8d;
+    background:#f7f9fb;
+    border:1px solid #dfe6e9;
+    border-bottom:none;
+    border-radius:10px 10px 0 0;
+    padding:10px 0;
 }
+
 /* --- ESTILOS DE LA PANTALLA DE RESULTADOS --- */
 
 .btn-salir{
@@ -476,4 +484,20 @@ h1 {
     margin:0 -18px 14px;
 }
 
+/* Color superior de cada modo */
 
+.modo-seccion:nth-child(1){
+    border-top-color:#27AE60;
+}
+
+.modo-seccion:nth-child(2){
+    border-top-color:#E67E22;
+}
+
+.modo-seccion:nth-child(3){
+    border-top-color:#2980B9;
+}
+
+.modo-seccion:nth-child(4){
+    border-top-color:#C0392B;
+}
