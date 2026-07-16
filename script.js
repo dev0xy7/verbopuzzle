@@ -648,21 +648,67 @@ const bancoVerbos = [
 let listaJuego = [];
 let indiceActual = 0;
 let bloqueado = false;
+let nivelSeleccionado = "";
 
 // VARIABLES NUEVAS: Contadores globales de la sesión (Aciertos y Errores)
 let totalAciertos = 0;
 let totalErrores = 0;
 
 function iniciarJuego() {
-    listaJuego = [...bancoVerbos].sort(() => Math.random() - 0.5);
+
+    if (nivelSeleccionado === "a1") {
+
+        listaJuego = bancoVerbos.filter(v =>
+            v.modo === "indicativo" &&
+            [
+                "presente",
+                "passato-prossimo",
+                "futuro-semplice"
+            ].includes(v.tiempo)
+        );
+
+    } else if (nivelSeleccionado === "b1") {
+
+        listaJuego = bancoVerbos.filter(v =>
+
+            (
+                v.modo === "indicativo" &&
+                [
+                    "presente",
+                    "passato-prossimo",
+                    "futuro-semplice",
+                    "imperfetto"
+                ].includes(v.tiempo)
+
+            )
+
+            ||
+
+            v.modo === "condizionale"
+
+            ||
+
+            v.modo === "imperativo"
+
+        );
+
+    } else {
+
+        listaJuego = [...bancoVerbos];
+
+    }
+
+    listaJuego.sort(() => Math.random() - 0.5);
+
     indiceActual = 0;
     totalAciertos = 0;
     totalErrores = 0;
     bloqueado = false;
+
     actualizarContador();
     mostrarSiguienteVerbo();
-}
 
+}
 function mostrarSiguienteVerbo() {
     // Si se acaban los verbos, abre automáticamente la pantalla de estadísticas
     if (indiceActual >= listaJuego.length) {
@@ -776,4 +822,14 @@ function mostrarSiguienteVerbo() {
 /* ================================================================= */
 
 // Arranca el juego de forma automática apenas carga la página
-iniciarJuego();
+function seleccionarNivel(nivel){
+
+    nivelSeleccionado = nivel;
+
+    document.getElementById("pantalla-inicio").style.display = "none";
+
+    document.getElementById("juego").style.display = "block";
+
+    iniciarJuego();
+
+}
