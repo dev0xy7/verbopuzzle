@@ -799,10 +799,21 @@ function abrirPantallaResultados() {
 }
 
 function cerrarResultadosYReiniciar() {
-    // Ocultar modal y reordenar el bolillero desde cero
+
+    // Cerrar la ventana de resultados
     document.getElementById("modal-resultados").style.display = "none";
-    iniciarJuego();
+
+    // Ocultar el juego
+    document.getElementById("juego").style.display = "none";
+
+    // Mostrar nuevamente la pantalla de selección
+    document.getElementById("pantalla-inicio").style.display = "flex";
+
+    // Reiniciar el nivel seleccionado
+    nivelSeleccionado = "";
+
 }
+
 
 /* ================================================================= */
 /* RESPALDO HISTÓRICO (INACTIVO): Tu código de control anterior      */
