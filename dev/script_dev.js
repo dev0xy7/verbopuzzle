@@ -652,11 +652,73 @@ let indiceActual = 0;
 let bloqueado = false;
 let nivelSeleccionado = "";
 
-// VARIABLES NUEVAS: Contadores globales de la sesión (Aciertos y Errores)
 let totalAciertos = 0;
 let totalErrores = 0;
 
-function iniciarJuego() {
+/*==================================================
+ HISTORIAL PEDAGÓGICO
+==================================================*/
+
+let historialPartida = [];
+
+let registroActual = null;
+
+/*==================================================
+ REGISTRO PEDAGÓGICO
+==================================================*/
+
+function iniciarRegistro(verbo){
+
+    registroActual = {
+
+        verbo: verbo.texto,
+
+        modo: verbo.modo,
+
+        tiempo: verbo.tiempo,
+
+        intentos: 0,
+
+        errores: 0,
+
+        correcto: false
+
+    };
+
+}
+
+function registrarIntento(){
+
+    if(registroActual){
+
+        registroActual.intentos++;
+
+    }
+
+}
+
+function registrarError(){
+
+    if(registroActual){
+
+        registroActual.errores++;
+
+    }
+
+}
+
+function finalizarRegistro(){
+
+    if(!registroActual) return;
+
+    registroActual.correcto = true;
+
+    historialPartida.push(registroActual);
+
+    registroActual = null;
+
+}
+
 
     if (nivelSeleccionado === "a1") {
 
