@@ -321,3 +321,56 @@ h1 {
 }
 .btn-reiniciar:hover { background: #117a65;
 }
+/* ===================================================== */
+/* PANTALLA DE SELECCIÓN DE NIVEL */
+/* ===================================================== */
+
+.pantalla-inicio{
+    width:100%;
+    max-width:520px;
+    display:flex;
+    flex-direction:column;
+    gap:18px;
+    margin-top:20px;
+}
+
+.pantalla-inicio h2{
+    text-align:center;
+    color:#2c3e50;
+    font-size:28px;
+    margin-bottom:10px;
+}
+
+.btn-nivel{
+    width:100%;
+    border:none;
+    border-radius:14px;
+    background:white;
+    padding:18px;
+    text-align:left;
+    cursor:pointer;
+    font-size:18px;
+    box-shadow:0 4px 12px rgba(0,0,0,.08);
+    transition:.2s;
+}
+
+.btn-nivel:hover{
+    transform:translateY(-2px);
+    box-shadow:0 8px 18px rgba(0,0,0,.15);
+}
+
+.btn-nivel strong{
+    display:block;
+    font-size:22px;
+    margin-bottom:6px;
+}
+
+.btn-nivel small{
+    color:#666;
+    font-size:15px;
+}
+
+.btn-deshabilitado{
+    opacity:.45;
+    cursor:not-allowed;
+}
